@@ -10,6 +10,16 @@ public class MulRecursion {
             return -mul(a, -b);
         }
     }
+
+    public static int productRecursion(int[] numbers, int index) {
+        if (index == numbers.length - 1) {
+            return numbers[index]; // Base case: return last element
+        } else {
+            // Cycle through list of numbers
+            return mul(numbers[index], productRecursion(numbers, index + 1));
+        }
+     }
+
     public static void main(String[] args) {
         
     }
