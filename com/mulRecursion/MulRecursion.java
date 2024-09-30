@@ -18,12 +18,15 @@ public class MulRecursion {
             } else if (b > 0) {
                 return a + mul(a, b - 1); // Recursively add 'a' to itself 'b' times
             } else { // b < 0
-                return -mul(a, -b); // Handle negative 'b' by negating the result of multiplying 'a' with the absolute value of 'b'
+                // Handle negative 'b' by negating the result of multiplying 'a' with the absolute value of 'b'
+                return -mul(a, -b);
             }
         } catch (StackOverflowError e) {
             // Handle the StackOverflowError gracefully
             stackOverflowOccured = true;
-            System.err.println("Stack Overflow occurred during multiplication. The recursion depth might be too high.\n\tPlease try with smaller numbers.");
+            System.err.println("""
+                               Stack Overflow occurred during multiplication. The recursion depth might be too high.
+                               \tPlease try with smaller numbers.""");
             return -1; // Example: Return -1 to indicate an error
         }
     }
